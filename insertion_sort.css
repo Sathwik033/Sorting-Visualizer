@@ -1,0 +1,67 @@
+/* Styling for the array container */
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Individual box styling */
+.box {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid black;
+    background-color: #f0f0f0;
+}
+
+.content {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styling for indices below boxes */
+.index-display {
+    position: absolute;
+    top: 110%;
+    font-size: 14px;
+    color: transparent;
+}
+
+/* Highlight for the key element */
+.key {
+    background-color: yellow;
+    border-color: gold;
+}
+
+/* Highlight during comparison */
+.compare {
+    background-color: orange;
+    border-color: red;
+}
+
+/* Highlight when marking sorted elements */
+.sorted {
+    background-color: lightgreen;
+    border-color: green;
+}
+
+/* Highlight for unsorted elements */
+.unsorted {
+    background-color: lightgray;
+    border-color: gray;
+}
+
+/* Styling for index i and j during comparison */
+.icompare {
+    color: red;
+    font-weight: bold;
+}

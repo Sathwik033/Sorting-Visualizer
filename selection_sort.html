@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sort Visualizer</title>
+    <link rel="stylesheet" href="selection_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Selection Sort Visualizer</h1>
+        <input type="number" id="arraySize" placeholder="Enter array size" min="1" max="20">
+        <input type="text" id="arrayElements" placeholder="Enter array elements (comma separated)">
+        <button id="createArray">Create Array</button>
+        <button id="startSort">Start Selection Sort</button>
+        <span id="speed">
+            <input id="speed_input" type="range" min="500" max="2000" stepDown=100 value=50>
+            Speed<br>
+        </span>
+
+        <div id="arrayContainer">
+            <div id="arrayBoxes"></div>
+        </div>
+
+        <!-- Selection Sort Logic Display -->
+        <div id="sortLogic" class="sort-logic">
+            <h3>Selection Sort Logic</h3>
+            <pre id="logicText"></pre>
+        </div>
+
+        <!-- Description of colors -->
+        <div class="color-description">
+            <p><strong>Description:</strong></p>
+            <p><span class="legend compare"></span> Comparing Elements</p>
+            <p><span class="legend minimum"></span> Current Minimum Element</p>
+            <p><span class="legend unsorted"></span> Unsorted Elements</p>
+            <p><span class="legend sorted"></span> Sorted Elements</p>
+            <p><span class="legend swap"></span> Swapping Elements</p>
+        </div>
+    </div>
+
+    <script src="selection_sort.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Sort Visualizer</title>
+    <link rel="stylesheet" href="bubble_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Insertion Sort Visualizer</h1>
+        <input type="number" id="arraySize" placeholder="Enter array size" min="1" max="20">
+        <input type="text" id="arrayElements" placeholder="Enter array elements (comma separated)">
+        <button id="createArray">Create Array</button>
+        <button id="startSort">Start Insertion Sort</button>
+        <span id="speed">
+            <input id="speed_input" type="range" min="500" max="2000" step="100" value="50">
+            Speed<br>
+        </span>
+
+        <div id="arrayContainer">
+            <div id="arrayBoxes"></div>
+        </div>
+
+        <!-- Insertion Sort Logic Display -->
+        <div id="sortLogic" class="sort-logic">
+            <h3>Insertion Sort Logic</h3>
+            <pre id="logicText"></pre>
+        </div>
+
+        <!-- Description of i and j -->
+        <div class="color-description">
+            <p><strong>Description:</strong></p>
+            <p><span class="legend compare"></span> Comparing Elements (i and j)</p>
+            <p><span class="legend unsorted"></span> Unsorted Elements</p>
+            <p><span class="legend sorted"></span> Sorted Elements</p>
+            <p><span class="legend swap"></span> Swapping Elements</p>
+        </div>
+    </div>
+
+    <script src="insertion_sort.js"></script>
+</body>
+
+</html>

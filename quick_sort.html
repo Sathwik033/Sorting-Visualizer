@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Visualizer</title>
+    <link rel="stylesheet" href="quick_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quick Sort Visualizer</h1>
+        <div class="controls">
+            <input type="number" id="arraySize" placeholder="Enter array size (max 20)" min="2" max="20">
+            <input type="text" id="arrayElements" placeholder="Enter numbers separated by commas">
+            <button onclick="generateArray()">Generate Random Array</button>
+            <button onclick="useCustomArray()">Use Custom Array</button>
+            <button onclick="startQuickSort()">Start Quick Sort</button>
+            <button onclick="pauseSort()">Pause</button>
+            <button onclick="resumeSort()">Resume</button>
+            <button onclick="reset()">Reset</button>
+            <label for="speed">Speed:</label>
+            <input type="range" id="speed" min="100" max="2000" value="500">
+        </div>
+        <div id="arrayContainer"></div>
+        <div id="status">Ready to sort</div>
+        <div class="legend">
+            <p><span class="color-box unsorted"></span> Unsorted</p>
+            <p><span class="color-box pivot"></span> Pivot</p>
+            <p><span class="color-box partition"></span> Partitioning</p>
+            <p><span class="color-box sorted"></span> Sorted</p>
+            <p><span class="color-box i-pointer"></span> i Pointer</p>
+            <p><span class="color-box j-pointer"></span> j Pointer</p>
+        </div>
+        <div class="explanation">
+            <h3>How Quick Sort Works:</h3>
+            <p>1. Select a pivot element (usually the rightmost element)</p>
+            <p>2. Partition the array: elements < pivot go to left, elements> pivot go to right</p>
+            <p>3. Recursively sort the left and right subarrays</p>
+            <p>4. The <strong>i</strong> pointer tracks the boundary between elements less than the pivot and elements
+                greater than the pivot</p>
+            <p>5. The <strong>j</strong> pointer scans through the array comparing elements with the pivot</p>
+        </div>
+        <div class="algorithm-box">
+            <h2>Quick Sort Algorithm</h2>
+            <pre>
+function quickSort(arr, low, high) {
+    if (low < high) {
+        let pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
+}
+            </pre>
+        </div>
+    </div>
+    <script src="quick_sort.js"></script>
+</body>
+
+</html>
