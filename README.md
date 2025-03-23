@@ -1,1 +1,1 @@
-# Sorting-Visualizer
+Developed an interactive sorting algorithm visualizer using the MERN stack, allowing users to observe real-time execution of sorting algorithms.Implemented dynamic performance metrics, including the number of comparisons and swaps, to provide deeper insights into algorithm efficiency.Engaged 500+ users by offering an intuitive and educational tool that enhances the understanding of sorting techniques through interactive visualization.
