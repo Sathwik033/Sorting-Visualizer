@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort Visualizer</title>
+    <link rel="stylesheet" href="merge_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Merge Sort Visualizer</h1>
+        <button id="howItWorks" onclick="window.location.href='merge_sort_explained.html'">❓ How It Works</button>
+        <button id="backToHome" onclick="window.location.href='index.html'">🏠 Back to Home</button>
+
+
+        <div class="controls">
+            <input type="number" id="arraySize" placeholder="Enter array size (max 20)" min="2" max="20">
+            <input type="text" id="arrayElements" placeholder="Enter numbers separated by commas">
+            <button onclick="generateArray()">Generate Random Array</button>
+            <button onclick="useCustomArray()">Use Custom Array</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+        <!-- Properly aligned Start + Speed -->
+        <div
+            style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button onclick="startMergeSort()">Start Merge Sort</button>
+            <div>
+                <input type="range" id="speed" min="100" max="2000" value="500">
+                <div style="margin-top: 5px;">Speed</div>
+            </div>
+        </div>
+
+
+        <div id="arrayContainer"></div>
+        <div id="status">Ready to sort</div>
+        <div class="legend">
+            <p><span class="color-box unsorted"></span> Unsorted</p>
+            <p><span class="color-box divide"></span> Dividing</p>
+            <p><span class="color-box merge"></span> Merging</p>
+            <p><span class="color-box comparing"></span> Comparing</p>
+            <p><span class="color-box sorted"></span> Sorted</p>
+        </div>
+        <div class="algorithm-box">
+            <h2>Merge Sort Algorithm</h2>
+            <pre>// Divide the array into halves and merge them recursively
+function mergeSort(arr, l, r) {
+    if (l < r) {
+        // Find the middle point
+        let m = Math.floor((l + r) / 2);
+        
+        // Sort first and second halves
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        
+        // Merge the sorted halves
+        merge(arr, l, m, r);
+    }
+}
+
+// Merge two subarrays of arr[]
+function merge(arr, l, m, r) {
+    // Create temp arrays
+    let left = arr.slice(l, m + 1);
+    let right = arr.slice(m + 1, r + 1);
+    
+    // Merge the temp arrays back into arr[l..r]
+    let i = 0, j = 0, k = l;
+    
+    while (i < left.length && j < right.length) {
+        if (left[i] < right[j]) {
+            arr[k++] = left[i++];
+        } else {
+            arr[k++] = right[j++];
+        }
+    }
+    
+    // Copy remaining elements
+    while (i < left.length) {
+        arr[k++] = left[i++];
+    }
+    
+    while (j < right.length) {
+        arr[k++] = right[j++];
+    }
+}</pre>
+        </div>
+    </div>
+    <!-- Firebase v8 (Compat SDK - works with plain HTML/JS) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="merge_sort.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOOaDT15wa2ZIr8Nd8g8hS169-e9uyWD8",
+            authDomain: "sorting-visualizer-auth.firebaseapp.com",
+            projectId: "sorting-visualizer-auth",
+            storageBucket: "sorting-visualizer-auth.firebasestorage.app",
+            messagingSenderId: "202455114652",
+            appId: "1:202455114652:web:79babd222d23e60b571e59"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

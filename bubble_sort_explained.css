@@ -1,0 +1,149 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2fdf3;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+#backToVisualizer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#backToVisualizer:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+.complexity-section {
+    margin-top: 30px;
+}
+
+.complexity-section h2 {
+    color: #9C27B0;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f3e5f5;
+    color: #4A148C;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.wrapper {
+    max-width: 1050px;
+    margin: auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.step-section ol {
+    line-height: 1.8;
+    font-size: 1.05em;
+    padding-left: 20px;
+}
+
+.example-section {
+    background: #f0f8ff;
+    border-left: 4px solid #2196F3;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+.example-box p {
+    margin: 10px 0;
+    font-size: 1.05em;
+}
+
+.legend-section ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.8;
+}
+
+.legend {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.legend.unsorted {
+    background-color: #2196F3;
+}
+
+.legend.compare {
+    background-color: #FFC107;
+}
+
+.legend.swap {
+    background-color: #FF0707;
+}
+
+.legend.sorted {
+    background-color: #4CAF50;
+}
+
+.compare {
+    color: #FFC107;
+    font-weight: bold;
+}
+
+.swap {
+    color: #FF0707;
+    font-weight: bold;
+}
+
+.sorted {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.tips-section {
+    background-color: #eafbe6;
+    padding: 20px;
+    border-left: 4px solid #4CAF50;
+    border-radius: 6px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How Merge Sort Works</title>
+    <link rel="stylesheet" href="merge_sort_explained.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>🧩 Understanding Merge Sort</h1>
+        <p class="intro">
+            Merge Sort is a divide-and-conquer algorithm. It splits the array into halves, sorts them individually, and
+            then merges them back in a sorted manner.
+        </p>
+
+        <!-- How It Works -->
+        <section>
+            <h2>🔁 How It Works (Detailed)</h2>
+
+            <p><strong>Here's your Merge Sort function:</strong></p>
+            <pre>
+function mergeSort(arr, l, r) {
+  if (l < r) {
+    let m = Math.floor((l + r) / 2);    // Middle index
+    mergeSort(arr, l, m);               // Sort left half
+    mergeSort(arr, m + 1, r);           // Sort right half
+    merge(arr, l, m, r);                // Merge both halves
+  }
+}
+</pre>
+
+            <p><strong>Step-by-step explanation:</strong></p>
+            <ol>
+                <li>Divide the array recursively until each part has 1 element.</li>
+                <li>Use the <code>merge</code> function to combine two sorted halves into one.</li>
+                <li>Repeat the process bottom-up until the full array is sorted.</li>
+            </ol>
+
+            <!-- Merge Logic -->
+            <h3>📌 Merge Function (Explained with Code)</h3>
+            <pre>
+function merge(arr, l, m, r) {
+  let left = arr.slice(l, m + 1);
+  let right = arr.slice(m + 1, r + 1);
+
+  let i = 0, j = 0, k = l;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      arr[k++] = left[i++];
+    } else {
+      arr[k++] = right[j++];
+    }
+  }
+
+  while (i < left.length) {
+    arr[k++] = left[i++];
+  }
+
+  while (j < right.length) {
+    arr[k++] = right[j++];
+  }
+}
+</pre>
+
+            <p><strong>Explanation:</strong></p>
+            <ul>
+                <li><code>left</code> and <code>right</code> are temporary arrays for the two halves.</li>
+                <li>Compare values from both sides and add the smaller one to <code>arr[k]</code>.</li>
+                <li>When one side is exhausted, copy the remaining elements from the other side.</li>
+            </ul>
+
+            <p><strong>✅ Result:</strong> Both halves are now merged into a fully sorted portion of the array.</p>
+        </section>
+
+        <!-- Example -->
+        <section class="example-section">
+            <h2>🎓 Example: Sort [38, 27, 43, 3]</h2>
+            <div class="example-box">
+                <p>Split → [38, 27] and [43, 3]</p>
+                <p>Split again → [38], [27], [43], [3]</p>
+                <p>Merge → [27, 38], [3, 43]</p>
+                <p>Final merge → [3, 27, 38, 43]</p>
+            </div>
+        </section>
+
+        <!-- Time Complexity -->
+        <section class="complexity-section">
+            <h2>⏱️ Time Complexity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Best</td>
+                        <td>O(n log n)</td>
+                        <td>Always divides into halves and merges efficiently</td>
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>O(n log n)</td>
+                        <td>Every scenario behaves the same</td>
+                    </tr>
+                    <tr>
+                        <td>Worst</td>
+                        <td>O(n log n)</td>
+                        <td>Even in worst-case, merge sort maintains efficiency</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>🧠 Space Complexity:</strong> O(n) – requires extra space for temporary arrays</p>
+        </section>
+
+        <!-- Navigation Button -->
+        <button onclick="window.location.href='merge_sort.html'" id="backToVisualizer">⬅️ Back to Visualizer</button>
+    </div>
+</body>
+
+</html>

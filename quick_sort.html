@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Visualizer</title>
+    <link rel="stylesheet" href="quick_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quick Sort Visualizer</h1>
+        <button id="howItWorks" onclick="window.location.href='quick_sort_explained.html'">❓ How It Works</button>
+        <button id="backToHome" onclick="window.location.href='index.html'">🏠 Back to Home</button>
+
+        <div class="controls">
+            <input type="number" id="arraySize" placeholder="Enter array size (max 20)" min="2" max="20">
+            <input type="text" id="arrayElements" placeholder="Enter numbers separated by commas">
+            <button onclick="generateArray()">Generate Random Array</button>
+            <button onclick="useCustomArray()">Use Custom Array</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+        <!-- Aligned Start + Speed Slider -->
+        <div
+            style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button onclick="startQuickSort()">Start Quick Sort</button>
+            <div>
+                <input type="range" id="speed" min="100" max="3000" value="1000">
+
+                <div style="margin-top: 5px;">Speed</div>
+            </div>
+        </div>
+
+        <div id="arrayContainer"></div>
+        <div id="status">Ready to sort</div>
+        <div class="legend">
+            <p><span class="color-box unsorted"></span> Unsorted</p>
+            <p><span class="color-box pivot"></span> Pivot</p>
+            <p><span class="color-box partition"></span> Partitioning</p>
+            <p><span class="color-box sorted"></span> Sorted</p>
+            <p><span class="color-box i-pointer"></span> i Pointer</p>
+            <p><span class="color-box j-pointer"></span> j Pointer</p>
+        </div>
+
+        <div class="algorithm-box">
+            <h2>Quick Sort Algorithm</h2>
+            <pre>
+function quickSort(arr, low, high) {
+    if (low < high) {
+        let pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
+}
+            </pre>
+        </div>
+    </div>
+    <!-- Firebase v8 (Compat SDK - works with plain HTML/JS) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="quick_sort.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOOaDT15wa2ZIr8Nd8g8hS169-e9uyWD8",
+            authDomain: "sorting-visualizer-auth.firebaseapp.com",
+            projectId: "sorting-visualizer-auth",
+            storageBucket: "sorting-visualizer-auth.firebasestorage.app",
+            messagingSenderId: "202455114652",
+            appId: "1:202455114652:web:79babd222d23e60b571e59"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

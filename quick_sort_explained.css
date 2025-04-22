@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffdf0;
+    margin: 0;
+    padding: 20px;
+}
+
+pre {
+    background-color: #f1f1f1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.wrapper {
+    max-width: 1050px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+    color: #4CAF50;
+}
+
+.intro,
+ol,
+p {
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+.example-box {
+    background: #fff3e0;
+    padding: 15px;
+    border-left: 4px solid#4CAF50;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+.legend-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.legend {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.legend.pivot {
+    background-color: #FF9800;
+}
+
+.legend.compare {
+    background-color: #FFC107;
+}
+
+.legend.swap {
+    background-color: #F44336;
+}
+
+.legend.sorted {
+    background-color: #4CAF50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #fff8e1;
+    color: #E65100;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#backToVisualizer {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#backToVisualizer:hover {
+    background-color: #388E3C;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How Selection Sort Works</title>
+    <link rel="stylesheet" href="selection_sort_explained.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>🔍 Understanding Selection Sort</h1>
+        <p class="intro">Selection Sort divides the array into sorted and unsorted parts. In each step, it selects the
+            smallest value from the unsorted portion and places it at the beginning.</p>
+
+        <section>
+            <h2>🔁 How It Works</h2>
+            <ol>
+                <li>Start from index 0.</li>
+                <li>Find the minimum element from the unsorted section.</li>
+                <li>Swap it with the element at the current index.</li>
+                <li>Repeat for the rest of the array.</li>
+            </ol>
+        </section>
+
+        <section class="example-section">
+            <h2>🎓 Example: Sort [29, 10, 14]</h2>
+            <div class="example-box">
+                <p>🔁 i = 0 → min = 10 → Swap 29 & 10 ➡️ [10, 29, 14]</p>
+                <p>🔁 i = 1 → min = 14 → Swap 29 & 14 ➡️ [10, 14, 29]</p>
+                <p>✅ i = 2 → Only one left, array sorted!</p>
+            </div>
+        </section>
+
+        <section class="complexity-section">
+            <h2>⏱️ Time Complexity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Best</td>
+                        <td>O(n²)</td>
+                        <td>No matter what, we still compare every pair</td>
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>O(n²)</td>
+                        <td>Typical scenario — check every element</td>
+                    </tr>
+                    <tr>
+                        <td>Worst</td>
+                        <td>O(n²)</td>
+                        <td>Reversed or unordered arrays</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>🧠 Space Complexity:</strong> O(1) – it’s in-place!</p>
+        </section>
+
+        <button onclick="window.location.href='selection_sort.html'" id="backToVisualizer">⬅️ Back to
+            Visualizer</button>
+    </div>
+</body>
+
+</html>

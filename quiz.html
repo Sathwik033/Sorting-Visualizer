@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="quiz.css" />
+
+  <title>Quiz App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="start-screen">
+      <h1 class="heading">Quiz App</h1>
+      <div class="settings">
+        <label for="num-questions">Number of Questions:</label>
+        <select id="num-questions">
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+        <label for="category">Select Category:</label>
+        <select id="category">
+          <option value="Bubble Sort">Bubble Sort</option>
+          <option value="Quick Sort">Quick Sort</option>
+          <option value="Merge Sort">Merge Sort</option>
+          <option value="Selection Sort">Selection Sort</option>
+          <option value="Insertion Sort">Insertion Sort</option>
+          <option value="Searching (Linear & Binary)">Searching (Linear & Binary)</option>
+        </select>
+        <label for="time">Select time per question:</label>
+        <select id="time">
+          <option value="10">10 seconds</option>
+          <option value="20">20 seconds</option>
+          <option value="30">30 seconds</option>
+          <option value="40">40 seconds</option>
+          <option value="50">50 seconds</option>
+          <option value="60">60 seconds</option>
+        </select>
+      </div>
+      <button class="btn start">Start Quiz</button>
+    </div>
+    <div class="quiz hide">
+      <div class="timer">
+        <div class="progress">
+          <div class="progress-bar"></div>
+          <span class="progress-text"></span>
+        </div>
+      </div>
+      <div class="question-wrapper">
+        <div class="number">Question <span class="current">1</span><span class="total">/10</span></div>
+        <div class="question">This is a question?</div>
+      </div>
+      <div class="answer-wrapper"></div>
+      <button class="btn submit" disabled>Submit</button>
+      <button class="btn next">Next</button>
+    </div>
+    <div class="end-screen hide">
+      <h1 class="heading">Quiz App</h1>
+      <div class="score">
+        <span class="score-text">Your score:</span>
+        <div>
+          <span class="final-score">0</span>
+          <span class="total-score">/10</span>
+        </div>
+      </div>
+      <button class="btn restart">Restart Quiz</button>
+    </div>
+  </div>
+  <script src="quiz.js"></script>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCOOaDT15wa2ZIr8Nd8g8hS169-e9uyWD8",
+      authDomain: "sorting-visualizer-auth.firebaseapp.com",
+      projectId: "sorting-visualizer-auth",
+      storageBucket: "sorting-visualizer-auth.firebasestorage.app",
+      messagingSenderId: "202455114652",
+      appId: "1:202455114652:web:79babd222d23e60b571e59"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html"; // Redirect to login if not logged in
+      }
+    });
+  </script>
+
+</body>
+
+</html>
