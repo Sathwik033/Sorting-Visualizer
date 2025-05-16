@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How Quick Sort Works</title>
+    <link rel="stylesheet" href="quick_sort_explained.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>⚡ Understanding Quick Sort</h1>
+        <p class="intro">
+            Quick Sort is a fast, divide-and-conquer sorting algorithm. It picks a <strong>pivot</strong> element and
+            rearranges the array so that smaller elements are on the left and larger ones on the right.
+            <br><br>
+            In your implementation, the <strong>last element</strong> is used as the pivot.
+        </p>
+
+        <!-- How It Works -->
+        <section>
+            <h2>🔁 How It Works (Detailed)</h2>
+
+            <p><strong>Here’s the main Quick Sort function:</strong></p>
+            <pre>
+function quickSort(arr, low, high) {
+  if (low < high) {
+    let pi = partition(arr, low, high);
+    quickSort(arr, low, pi - 1);
+    quickSort(arr, pi + 1, high);
+  }
+}
+</pre>
+
+            <p><strong>Step-by-step explanation:</strong></p>
+            <ol>
+                <li>Only sort when <code>low &lt; high</code>.</li>
+                <li>Call <code>partition()</code> to position the pivot correctly.</li>
+                <li>Recursively sort left and right subarrays.</li>
+            </ol>
+
+            <!-- Partition Logic -->
+            <h3>📌 Partition Logic (Explained with Code)</h3>
+            <pre>
+function partition(arr, low, high) {
+  let pivot = arr[high];              // Step 1: Last element as pivot
+  let i = low - 1;                    // Step 2: Pointer for smaller items
+
+  for (let j = low; j < high; j++) {
+    if (arr[j] < pivot) {            // Step 3: If element < pivot
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];  // Step 4: Swap to left
+    }
+  }
+
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];  // Step 5: Place pivot
+  return i + 1;
+}
+</pre>
+
+            <section>
+
+                <p><strong>What’s happening </strong></p>
+                <ul>
+                    <li><code>pivot = arr[high]</code> → Choose the last element as pivot.</li>
+                    <li><code>i = low - 1</code> → Keeps track of where smaller items should go.</li>
+                    <li>Compare all elements from <code>low</code> to <code>high - 1</code>.</li>
+                    <li>Swap smaller items to the left side.</li>
+                    <li>Finally, move the pivot to the middle.</li>
+                </ul>
+
+                <p><strong>✅ Result:</strong> Elements left of pivot are smaller, right are larger — and the pivot
+                    is
+                    correctly placed!</p>
+            </section>
+
+            <!-- Example -->
+            <section class="example-section">
+                <h2>🎓 Example: Sort [33, 10, 55, 26]</h2>
+                <div class="example-box">
+                    <p>Step 1: Pivot = 26 (last element)</p>
+                    <p>Step 2: Partition into [10] 🔸26🔸 [55, 33]</p>
+                    <p>Step 3: Recursively sort left and right → [10, 26, 33, 55]</p>
+                </div>
+            </section>
+
+            <!-- Color Legend -->
+
+            <!-- Time Complexity -->
+            <section class="complexity-section">
+                <h2>⏱️ Time Complexity</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case</th>
+                            <th>Time</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Best</td>
+                            <td>O(n log n)</td>
+                            <td>Pivot splits array evenly</td>
+                        </tr>
+                        <tr>
+                            <td>Average</td>
+                            <td>O(n log n)</td>
+                            <td>Random pivot selections</td>
+                        </tr>
+                        <tr>
+                            <td>Worst</td>
+                            <td>O(n²)</td>
+                            <td>Already sorted or reverse sorted array</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>🧠 Space Complexity:</strong> O(log n) — due to recursion</p>
+            </section>
+            <!-- Visualization Tip -->
+            <section class="visualization-tip">
+                <p><strong>🔍 Tip:</strong> For a more visual impact, try sorting an array in <em>descending order</em>
+                    like [99, 75, 50, 25]. It makes the pivot placement more noticeable!</p>
+            </section>
+
+            <!-- Back Button -->
+            <button onclick="window.location.href='quick_sort.html'" id="backToVisualizer">⬅️ Back to
+                Visualizer</button>
+
+    </div>
+</body>
+
+</html>

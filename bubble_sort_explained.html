@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Bubble Sort Works</title>
+    <link rel="stylesheet" href="bubble_sort_explained.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>🌊 Understanding Bubble Sort</h1>
+
+
+        <p class="intro">Ever watched bubbles rise to the top in water? That's how Bubble Sort works — the largest
+            values "bubble" up with each round. Let's break it down step-by-step, like you're seeing it in the
+            visualizer.</p>
+
+        <section class="step-section">
+            <h2>🔍 Step-by-Step Breakdown</h2>
+            <ol>
+                <li><strong>Start at the beginning</strong> of the array</li>
+                <li><strong>Compare two adjacent values</strong></li>
+                <li>If the left one is larger 👉 <span class="swap">swap</span> them</li>
+                <li>Move one step right ➡️ and repeat</li>
+                <li>Once a full pass is done, <span class="sorted">last item is sorted</span></li>
+                <li>Repeat until the array is completely sorted ✅</li>
+            </ol>
+        </section>
+
+        <section class="example-section">
+            <h2>🎓 Walkthrough Example</h2>
+            <p>Let’s sort this: <strong>[34, 12, 25]</strong></p>
+            <div class="example-box">
+                <p>🔁 <span class="compare">Compare</span> 34 & 12 → <span class="swap">Swap</span> ➡️ [12, 34, 25]</p>
+                <p>🔁 <span class="compare">Compare</span> 34 & 25 → <span class="swap">Swap</span> ➡️ [12, 25, 34] ✅
+                </p>
+                <p>🍾 34 is now sorted at the end! Repeat for the rest...</p>
+                <p>🏁 Final array: <span class="sorted">[12, 25, 34]</span></p>
+            </div>
+        </section>
+        <section class="complexity-section">
+            <h2>⏱️ Time Complexity of Bubble Sort</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Time Complexity</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Best Case</strong></td>
+                        <td>O(n)</td>
+                        <td>When the array is already sorted. Only one pass is needed with no swaps.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Average Case</strong></td>
+                        <td>O(n²)</td>
+                        <td>On average, it compares and possibly swaps each pair multiple times.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Worst Case</strong></td>
+                        <td>O(n²)</td>
+                        <td>When the array is in completely reverse order. Max comparisons and swaps needed.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>🧠 Space Complexity:</strong> O(1)</p>
+        </section>
+
+        <section class="tips-section">
+            <h2>💡 Pro Tip</h2>
+            <p>Each round locks one more value in place. So if you see green boxes at the end, those are done and won't
+                move again!</p>
+        </section>
+        <button id="backToVisualizer" onclick="window.location.href='bubble_sort.html'">⬅️ Back to Visualizer</button>
+
+    </div>
+</body>
+
+</html>

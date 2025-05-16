@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Visualizer</title>
+    <link rel="stylesheet" href="bubble_sort.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bubble Sort Visualizer</h1>
+        <button id="howItWorks" onclick="window.location.href='bubble_sort_explained.html'">❓ How It Works</button>
+
+
+
+        <input type="number" id="arraySize" placeholder="Enter array size" min="1" max="20">
+        <input type="text" id="arrayElements" placeholder="Enter array elements (comma separated)">
+        <button id="createArray">Create Array</button>
+        <button id="resetButton">Reset</button>
+        <button id="backToHome" onclick="window.location.href='index.html'">🏠 Back to Home</button>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <button id="startSort">Start Bubble Sort</button>
+            <div id="speed">
+                <input id="speed_input" type="range" min="100" max="2000" step="100" value="1000">
+                <div style="margin-top: 5px;">Speed</div>
+            </div>
+        </div>
+
+
+
+
+        <div id="arrayContainer">
+            <div id="arrayBoxes"></div>
+        </div>
+        <div id="status" style="margin-top: 10px; font-weight: bold; color: #555;"></div>
+
+
+        <!-- Bubble Sort Logic Display -->
+        <div id="sortLogic" class="sort-logic">
+            <h3>Bubble Sort Logic</h3>
+            <pre id="logicText"></pre>
+        </div>
+
+        <!-- Description of i and j -->
+        <div class="color-description">
+            <p><strong>Description:</strong></p>
+            <p><span class="legend compare"></span> Comparing Elements (i and j)</p>
+            <p><span class="legend unsorted"></span> Unsorted Elements</p>
+            <p><span class="legend sorted"></span> Sorted Elements</p>
+            <p><span class="legend swap"></span> swapping Elements</p>
+        </div>
+    </div>
+    <!-- Firebase v8 (Compat SDK - works with plain HTML/JS) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="bubble_sort.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOOaDT15wa2ZIr8Nd8g8hS169-e9uyWD8",
+            authDomain: "sorting-visualizer-auth.firebaseapp.com",
+            projectId: "sorting-visualizer-auth",
+            storageBucket: "sorting-visualizer-auth.firebasestorage.app",
+            messagingSenderId: "202455114652",
+            appId: "1:202455114652:web:79babd222d23e60b571e59"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Check authentication state
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                // Redirect to login page if not authenticated
+                window.location.href = "login.html";
+            }
+            // If user is authenticated, do nothing - page will load normally
+        });
+    </script>
+
+</body>
+
+</html>

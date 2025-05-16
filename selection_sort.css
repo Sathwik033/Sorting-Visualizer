@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+#howItWorks,
+#backToHome {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#howItWorks {
+    background-color: #2196F3;
+    color: white;
+}
+
+#howItWorks:hover {
+    background-color: #1976D2;
+}
+
+#backToHome {
+    background-color: #2196F3;
+    color: white;
+}
+
+#backToHome:hover {
+    background-color: #1976D2;
+}
+
+.container {
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    width: 90%;
+    /* Added for responsive wider layout */
+    max-width: 1200px;
+    /* Prevents it from being too wide */
+    margin: 0 auto;
+}
+
+input[type="number"] {
+    width: 200px;
+}
+
+input[type="text"] {
+    width: 300px;
+    /* Adjust as needed */
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input,
+button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#arrayContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    border: 2px solid #4CAF50;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    position: relative;
+}
+
+#arrayBoxes {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 50px;
+    height: 70px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.innerbox {
+    display: inline-block;
+    font-size: 0.5em;
+    display: none;
+}
+
+.content {
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+/* Unsorted elements (default state) */
+.unsorted {
+    background-color: #2196F3;
+    /* Blue */
+}
+
+/* Elements being compared */
+.compare {
+    background-color: #FFC107;
+    /* Yellow */
+    transform: scale(1.1);
+    /* Slight zoom for emphasis */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Current minimum element */
+.minimum {
+    background-color: #9C27B0;
+    /* Purple */
+    transform: scale(1.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Elements being swapped */
+.swap {
+    background-color: #FF0707;
+    /* Red */
+    transition: background-color 0.3s ease;
+}
+
+/* Sorted elements */
+.sorted {
+    background-color: #4CAF50;
+    /* Green */
+    transition: background-color 0.3s ease;
+}
+
+.icompare {
+    display: inline-block;
+}
+
+/* Sort Logic Display */
+#sortLogic {
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid #4CAF50;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #eaf8ea;
+}
+
+#speed {
+    display: inline-block;
+}
+
+.color-description {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.legend {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.legend.unsorted {
+    background-color: #2196F3;
+}
+
+.legend.sorted {
+    background-color: #4CAF50;
+}
+
+.legend.compare {
+    background-color: #FFC107;
+}
+
+.legend.minimum {
+    background-color: #9C27B0;
+}
+
+.legend.swap {
+    background-color: #ff0707;
+}

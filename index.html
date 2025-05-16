@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sorting Visualizer</h1>
+        <div class="button-container">
+            <button onclick="window.location.href='bubble_sort.html'">Bubble Sort</button>
+            <button onclick="window.location.href='selection_sort.html'">Selection Sort</button>
+            <button onclick="window.location.href='insertion_sort.html'">Insertion Sort</button>
+            <button onclick="window.location.href='merge_sort.html'">Merge Sort</button>
+            <button onclick="window.location.href='quick_sort.html'">Quick Sort</button>
+            <button onclick="window.location.href='quiz.html'">Quiz</button>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" id="profileIcon" alt="Profile" />
+        <div id="profilePopup" class="email-popup">
+            <div id="userEmail" class="popup-item">Loading...</div>
+
+            <button id="showPasswordForm" class="popup-item">Change Password</button>
+
+            <div id="passwordForm" class="popup-item" style="display: none;">
+                <input type="password" id="newPassword" placeholder="New Password" />
+                <button id="updatePassword">Update</button>
+            </div>
+
+            <button id="logoutBtn" class="popup-item">Logout</button>
+        </div>
+    </div>
+
+
+
+    <!-- Firebase SDKs -->
+    <!-- Firebase v8 (Compat SDK - works with plain HTML/JS) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOOaDT15wa2ZIr8Nd8g8hS169-e9uyWD8",
+            authDomain: "sorting-visualizer-auth.firebaseapp.com",
+            projectId: "sorting-visualizer-auth",
+            storageBucket: "sorting-visualizer-auth.firebasestorage.app",
+            messagingSenderId: "202455114652",
+            appId: "1:202455114652:web:79babd222d23e60b571e59"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Check if user is logged in
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = "login.html"; // Redirect if not logged in
+            }
+        });
+        auth.onAuthStateChanged(user => {
+            if (!user || !user.emailVerified) {
+                window.location.href = "login.html"; // Block access if not verified
+            } else {
+                const userEmail = document.getElementById("userEmail");
+                const profileIcon = document.getElementById("profileIcon");
+                const profilePopup = document.getElementById("profilePopup");
+                const passwordForm = document.getElementById("passwordForm");
+                const showPasswordFormBtn = document.getElementById("showPasswordForm");
+                const updatePasswordBtn = document.getElementById("updatePassword");
+                const logoutBtn = document.getElementById("logoutBtn");
+
+                userEmail.innerText = user.email;
+
+                profileIcon.addEventListener("click", () => {
+                    profilePopup.style.display = (profilePopup.style.display === "none" || profilePopup.style.display === "") ? "flex" : "none";
+                });
+
+                showPasswordFormBtn.addEventListener("click", () => {
+                    passwordForm.style.display = passwordForm.style.display === "none" ? "block" : "none";
+                });
+
+                updatePasswordBtn.addEventListener("click", () => {
+                    const newPassword = document.getElementById("newPassword").value;
+                    user.updatePassword(newPassword).then(() => {
+                        alert("Password updated successfully!");
+                        document.getElementById("newPassword").value = "";
+                        passwordForm.style.display = "none";
+                    }).catch(error => {
+                        alert("Error: " + error.message);
+                    });
+                });
+
+                logoutBtn.addEventListener("click", () => {
+                    firebase.auth().signOut().then(() => {
+                        window.location.href = "login.html";
+                    });
+                });
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

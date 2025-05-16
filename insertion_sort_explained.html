@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How Insertion Sort Works</title>
+    <link rel="stylesheet" href="insertion_sort_explained.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>🧩 Understanding Insertion Sort</h1>
+        <p class="intro">Insertion Sort builds a sorted section one element at a time. It compares the current element
+            (key) with the sorted portion and places it in the correct position.</p>
+
+        <section>
+            <h2>🔍 Step-by-Step Breakdown</h2>
+            <ol>
+                <li>Start from index 1 (leave the first element as is).</li>
+                <li>Store the current value as <strong>key</strong>.</li>
+                <li>Compare key with elements before it.</li>
+                <li>Shift elements one step to the right until key fits.</li>
+                <li>Insert the key at the right position.</li>
+            </ol>
+        </section>
+
+        <section class="example-section">
+            <h2>🎓 Example: Sort [7, 3, 5]</h2>
+            <div class="example-box">
+                <p>👉 i = 1 → key = 3 → compare 3 & 7 → shift 7 ➡️ [7, 7, 5]</p>
+                <p>👉 insert 3 → [3, 7, 5]</p>
+                <p>👉 i = 2 → key = 5 → compare with 7 → shift 7 ➡️ [3, 7, 7]</p>
+                <p>👉 insert 5 → [3, 5, 7]</p>
+                <p>✅ Final Sorted Array: [3, 5, 7]</p>
+            </div>
+        </section>
+
+        <section class="complexity-section">
+            <h2>⏱️ Time Complexity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Best</td>
+                        <td>O(n)</td>
+                        <td>Already sorted array</td>
+                    </tr>
+                    <tr>
+                        <td>Average</td>
+                        <td>O(n²)</td>
+                        <td>Random order</td>
+                    </tr>
+                    <tr>
+                        <td>Worst</td>
+                        <td>O(n²)</td>
+                        <td>Reversed array</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>🧠 Space Complexity:</strong> O(1)</p>
+        </section>
+
+        <button onclick="window.location.href='insertion_sort.html'" id="backToVisualizer">⬅️ Back to
+            Visualizer</button>
+    </div>
+</body>
+
+</html>
